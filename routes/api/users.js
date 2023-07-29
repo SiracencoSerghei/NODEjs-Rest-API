@@ -1,5 +1,5 @@
 const express = require("express")
-const { validateBody, authenticate } = require('../../middlewares')
+const { validateBody, authenticate, filesUploader, checkFilesExtension } = require('../../middlewares')
 const { signUserSchema, updateSubscriptionSchema } = require('../../models/joiSchemas')
 const ctrl = require('../../controllers/users')
 const router = express.Router()
@@ -14,8 +14,14 @@ router.post("/logout", authenticate, ctrl.logout);
 router.get("/current", authenticate, ctrl.getCurrent);
 // Subscription renewal
 router.patch("/", authenticate, validateBody(updateSubscriptionSchema), ctrl.renewalSubscription)
-
-
+// update avatar
+router.patch(
+    "/avatars",
+    authenticate,
+    filesUploader.single("avatar"),
+    checkFilesExtension,
+    ctrl.updateAvatar
+)
 
 
 module.exports = router;
