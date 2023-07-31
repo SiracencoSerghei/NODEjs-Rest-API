@@ -68,9 +68,18 @@ const updateSubscriptionSchema = Joi.object({
   }),
 });
 
+
+const mailSchema = Joi.object({
+  email: Joi.string()
+    .email()
+    .required()
+    .error(() => new Error("email")),
+});
+
 module.exports = {
   signUserSchema,
   addSchema,
   updateFavoriteSchema,
   updateSubscriptionSchema,
+  mailSchema,
 };
