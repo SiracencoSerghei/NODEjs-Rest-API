@@ -63,12 +63,12 @@ const resendVerifyMail = async (req, res) => {
   if (user.verify) {
     throw httpError(400, "Verification has already been passed");
   }
-  const verMail = {
+  const verifyEmail = {
     to: email,
     subject: "Verify Email",
-    html: `<a target="_blanc" href="${APP_HOST}/users/verify/${user.verificationToken}">Click to verify</a>`,
+    html: `<a target="_blanc" href="${BASE_URL}/users/verify/${user.verificationToken}">Click to verify</a>`,
   };
-  await mailSender(verMail);
+  await sendEmail(verifyEmail);
   res.status(200).json({ message: "Verification email sent" });
 };
 
@@ -79,6 +79,10 @@ const login = async (req, res) => {
   if (!user) {
     throw httpError(401, "Email or password is wrong");
   }
+
+  if (!user.verify) {
+    throw httpError(409, "Verify your mail first, please");
+  }
   const passwordCompare = await bcrypt.compare(password, user.password);
   if (!passwordCompare) {
     throw httpError(401, "Email or password is wrong");
@@ -88,7 +92,9 @@ const login = async (req, res) => {
   };
   const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "12h" });
   await User.findByIdAndUpdate(user._id, { token });
-  res.json({
+  res
+  .status(200)
+  .json({
     token,
     user: {
       email,
@@ -99,7 +105,9 @@ const login = async (req, res) => {
 
 const getCurrent = async (req, res) => {
   const { email, subscription } = req.user;
-  res.json({
+  res
+  .status(200)
+  .json({
     email,
     subscription,
   });
@@ -107,7 +115,7 @@ const getCurrent = async (req, res) => {
 
 const logout = async (req, res) => {
   const { _id } = req.user;
-  await User.findByIdAndUpdate(_id, { token: null });
+  await User.findByIdAndUpdate(_id, { token: "" });
 
   res.status(204).json();
 };
