@@ -4728,18 +4728,7 @@ mongodb-memory-server@^8.13.0:
     mongodb-memory-server-core "8.13.0"
     tslib "^2.5.3"
 
-mongodb@5.7.0, mongodb@^5.7.0:
-  version "5.7.0"
-  resolved "https://registry.npmjs.org/mongodb/-/mongodb-5.7.0.tgz"
-  integrity sha512-zm82Bq33QbqtxDf58fLWBwTjARK3NSvKYjyz997KSy6hpat0prjeX/kxjbPVyZY60XYPDNETaHkHJI2UCzSLuw==
-  dependencies:
-    bson "^5.4.0"
-    mongodb-connection-string-url "^2.6.0"
-    socks "^2.7.1"
-  optionalDependencies:
-    saslprep "^1.0.3"
-
-mongodb@^4.13.0, mongodb@^4.16.0:
+mongodb@4.16.0, mongodb@^4.13.0, mongodb@^4.16.0:
   version "4.16.0"
   resolved "https://registry.npmjs.org/mongodb/-/mongodb-4.16.0.tgz"
   integrity sha512-0EB113Fsucaq1wsY0dOhi1fmZOwFtLOtteQkiqOXGklvWMnSH3g2QS53f0KTP+/6qOkuoXE2JksubSZNmxeI+g==
@@ -4751,6 +4740,17 @@ mongodb@^4.13.0, mongodb@^4.16.0:
     "@aws-sdk/credential-providers" "^3.186.0"
     saslprep "^1.0.3"
 
+mongodb@^5.7.0:
+  version "5.7.0"
+  resolved "https://registry.npmjs.org/mongodb/-/mongodb-5.7.0.tgz"
+  integrity sha512-zm82Bq33QbqtxDf58fLWBwTjARK3NSvKYjyz997KSy6hpat0prjeX/kxjbPVyZY60XYPDNETaHkHJI2UCzSLuw==
+  dependencies:
+    bson "^5.4.0"
+    mongodb-connection-string-url "^2.6.0"
+    socks "^2.7.1"
+  optionalDependencies:
+    saslprep "^1.0.3"
+
 mongoose-unique-validator@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/mongoose-unique-validator/-/mongoose-unique-validator-4.0.0.tgz"
@@ -4760,16 +4760,16 @@ mongoose-unique-validator@^4.0.0:
     lodash.get "^4.0.2"
     lodash.merge "^4.6.2"
 
-mongoose@^7.3.4:
-  version "7.4.1"
-  resolved "https://registry.npmjs.org/mongoose/-/mongoose-7.4.1.tgz"
-  integrity sha512-o3E5KHHiHdaiwCJG3+9r70sncRKki71Ktf/TfXdW6myu+53rtZ56uLl5ylkQiCf60V3COJuOeekcxXVsjQ7cBA==
+mongoose@^6.0.0:
+  version "6.11.5"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-6.11.5.tgz#caac6406698af9802a3832ce676cf151742ae380"
+  integrity sha512-ZarPe1rCHG4aVb78xLuok4BBIm0HMz/Y/CjxYXCk3Qz1mEhS7bPMy6ZhSX2/Dng//R7ei8719j6K87UVM/1b3g==
   dependencies:
-    bson "^5.4.0"
+    bson "^4.7.2"
     kareem "2.5.1"
-    mongodb "5.7.0"
+    mongodb "4.16.0"
     mpath "0.9.0"
-    mquery "5.0.0"
+    mquery "4.0.3"
     ms "2.1.3"
     sift "16.0.1"
 
@@ -4789,10 +4789,10 @@ mpath@0.9.0:
   resolved "https://registry.npmjs.org/mpath/-/mpath-0.9.0.tgz"
   integrity sha512-ikJRQTk8hw5DEoFVxHG1Gn9T/xcjtdnOKIU1JTmGjZZlg9LST2mBLmcX3/ICIbgJydT2GOc15RnNy5mHmzfSew==
 
-mquery@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.npmjs.org/mquery/-/mquery-5.0.0.tgz"
-  integrity sha512-iQMncpmEK8R8ncT8HJGsGc9Dsp8xcgYMVSbs5jgnm1lFHTZqMJTUWTDx1LBO8+mK3tPNZWFLBghQEIOULSTHZg==
+mquery@4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/mquery/-/mquery-4.0.3.tgz#4d15f938e6247d773a942c912d9748bd1965f89d"
+  integrity sha512-J5heI+P08I6VJ2Ky3+33IpCdAvlYGTSUjwTPxkAr8i8EoduPMBX2OY/wa3IKZIQl7MU4SbFk8ndgSKyB/cl1zA==
   dependencies:
     debug "4.x"
 
